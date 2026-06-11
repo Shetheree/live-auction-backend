@@ -31,6 +31,11 @@ public class AuctionController {
     @Autowired
     private BidRepository bidRepository;
 
+    @GetMapping("/health")
+    public ResponseEntity<Map<String, String>> health() {
+        return ResponseEntity.ok(Map.of("status", "ok"));
+    }
+
     // Authentication endpoints
     @PostMapping("/register")
     public ResponseEntity<?> register(@RequestBody User user) {
